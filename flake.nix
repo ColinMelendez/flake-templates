@@ -1,7 +1,10 @@
 {
   description = "A Collection of Nix Flake Templates";
 
-  outputs = {...}: {
+  outputs = {
+    # self,
+    ...
+  }: {
     templates = {
       pnpm-vite = {
         path = ./templates/pnpm-vite;
