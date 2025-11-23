@@ -42,6 +42,10 @@
           nativeBuildInputs = [pnpm.configHook];
           inherit pnpmDeps;
           pnpmRoot = ".";
+
+          shellHook = ''
+            echo "Using pnpm $(pnpm --version) from nixpkgs"
+          '';
         };
 
         # ─────────────────────────────────────────────
