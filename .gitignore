@@ -1,3 +1,6 @@
+# Javascript related
+node_modules
+
 # Nix related
 /result
 /target
