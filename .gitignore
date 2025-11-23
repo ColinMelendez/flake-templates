@@ -1,2 +1,6 @@
 # Nix related
 /result
+/target
+.direnv/
+# flake lockfiles should not be versioned in templates unlike normal projects
+flake.lock
