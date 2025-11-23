@@ -1,5 +1,5 @@
 {
-  description = "PNPM + Vite project with offline Nix builds";
+  description = "Barebones pnpm project with offline Nix builds";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

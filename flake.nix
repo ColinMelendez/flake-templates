@@ -7,8 +7,8 @@
   }: {
     templates = {
       pnpm-vite = {
-        path = ./templates/pnpm-vite;
-        description = "A simple typescript setup with pnpm, vite, vitest, and eslint set up";
+        path = ./templates/pnpm;
+        description = "A barebones javascript setup with pnpm";
       };
     };
   };
