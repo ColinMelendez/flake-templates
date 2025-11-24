@@ -38,13 +38,18 @@
             nodejs
             pnpm
           ];
-
-          nativeBuildInputs = [pnpm.configHook];
+          nativeBuildInputs = [
+            pnpm.configHook
+          ];
           inherit pnpmDeps;
           pnpmRoot = ".";
-
           shellHook = ''
-            echo "Using pnpm $(pnpm --version) from nixpkgs"
+            echo ""
+            echo "Environment:"
+            echo "nixpkgs revision: ${nixpkgs.rev}"
+            echo "pnpm version: $(pnpm --version)"
+            echo "node version: $(node --version)"
+            echo ""
           '';
         };
 

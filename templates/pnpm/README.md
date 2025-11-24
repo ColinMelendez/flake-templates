@@ -117,3 +117,7 @@ This process also works for packages that have built sub-deps. Simply approve th
 - seeing **`Hash mismatch`** when you try to start the shell means the lockfile changed. Update the hash in `flake.nix` as described above.
 - **Missing `node_modules` outside the shell:** all installs happen through the Nix-managed store. Enter `nix develop` before running `pnpm`.
 - **Need a different Node.js or pnpm version:** swap `nodejs = pkgs.nodejs_XX;` or `pnpm = pkgs.pnpm_X;` in `flake.nix`.
+
+## Suggestions for future work
+
+- This template does not provide a way to automatically update the flake's pnpmDeps hash when dependencies are added or removed, relying on manually updating the hash. This could be easily improved with a small script that you run after modifying the lockfile.
