@@ -7,9 +7,17 @@ This template gives you a minimal pnpm workspace with support for:
 
 The goal is to provide the lightest possible starting point for JS development with pnpm while taking advantage of Nix for end-to-end build and environment support as much as possible.
 
+## contents
+
+- [Quick Start](#quick-start)
+- [Template Outline](#template-outline)
+- [Typical Workflow](#typical-workflow)
+- [Keeping pnpm deps in-sync](#keeping-pnpm-deps-in-sync)
+- [Troubleshooting](#troubleshooting)
+
 ---
 
-## Quick start
+## Quick Start
 
 Ensure that Nix is installed on your machine, and that flakes are enabled. Development and testing of these templates was done with Determinate Nix.
 
@@ -27,16 +35,18 @@ nix develop
 nix develop -c $SHELL   # to impurely bring your non-nix shell into the dev shell
 ```
 
+Or you can use Direnv to enter the shell automatically.
+
 Inside the dev shell, `pnpm` is configured to use the pre-fetched dependency store, so `pnpm install`, `pnpm run <script>`, etc., never touch the network.
 
 You may proceed to use your normal pnpm workflow in the shell. The only extra complication is that you need to keep the flakes pnpmDeps hash up to date as
-you make changes that affect the lockfile over time.
+you make changes that affect the lockfile over time. [See Troubleshooting.](#troubleshooting)
 
 The template assumes you have access to bash and git on your machine outside of this flake.
 
 ---
 
-## What lives where
+## Template Outline
 
 - `flake.nix` – wires nixpkgs, flake-utils, and sets up:
   - `devShells.default`: `mkShell` with `nodejs`, `pnpm`, and `pnpm.configHook`
@@ -68,7 +78,7 @@ The template assumes you have access to bash and git on your machine outside of 
 
 ---
 
-## Keeping pnpm deps in sync
+## Keeping pnpm deps in-sync
 
 Any time `pnpm-lock.yaml` changes, the `pnpm.fetchDeps` hash in `flake.nix` must be updated.
 
