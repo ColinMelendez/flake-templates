@@ -98,7 +98,7 @@ Any time `pnpm-lock.yaml` changes, the `pnpm.fetchDeps` hash in `flake.nix` must
 
 This is the standard Nix fixed-output workflow and guarantees hermetic, cacheable installs.
 
-This process captures both simple source-code deps from npm, as well as the built outputs of some packages like eslint, vite, and typescript. Simply approve the builds as you normally would with pnpm, and the built results will be captured for the flake.
+This process also works for packages that have built sub-deps. Simply approve the builds as you normally would with pnpm.
 
 ---
 
