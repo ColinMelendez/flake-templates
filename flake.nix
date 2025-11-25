@@ -7,8 +7,8 @@
   }: {
     templates = {
       pnpm-vite = {
-        path = ./templates/pnpm;
-        description = "A barebones javascript setup with pnpm";
+        path = ./templates/pnpm-with-nix-builds;
+        description = "A barebones javascript setup with pnpm that uses nix for npm dependencies";
       };
     };
   };

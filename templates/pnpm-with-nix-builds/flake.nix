@@ -17,12 +17,15 @@
         pkgs = import nixpkgs {inherit system;};
         nodejs = pkgs.nodejs_24;
         pnpm = pkgs.pnpm;
-        pname = "pnpm-vite";
-        version = "1.0.0";
+
+        # stable identifier pair for the cache store of the pnpmDeps result
+        # change this to something meaningful for the project.
+        pnpmStoreName = "pnpm-store-name";
+        version = "0.0.0";
 
         # Pre-fetch all dependencies declared in pnpm-lock.yaml so builds stay offline.
         pnpmDeps = pnpm.fetchDeps {
-          inherit pname version;
+          inherit pnpmStoreName version;
           src = ./.;
           pnpmLock = ./pnpm-lock.yaml;
           fetcherVersion = 2;
@@ -61,7 +64,7 @@
         #   - The build runs entirely offline once pnpmDeps hash is fixed.
         # ─────────────────────────────────────────────
         packages.default = pkgs.stdenv.mkDerivation {
-          inherit pname version;
+          inherit pnpmStoreName version;
           src = ./.;
 
           nativeBuildInputs = [
