@@ -49,7 +49,7 @@
         pnpmDeps,
         ...
       }: {
-        default = pkgs.mkShell {
+        default = pkgs.mkShellNoCC {
           packages = [
             nodejs
             pnpm

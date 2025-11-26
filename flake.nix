@@ -6,9 +6,9 @@
     ...
   }: {
     templates = {
-      pnpm-vite = {
-        path = ./templates/pnpm-with-nix-builds;
-        description = "A barebones javascript setup with pnpm that uses nix for npm dependencies";
+      pnpm-nix-builds-with-scaffolding = {
+        path = ./templates/with-scaffolding/pnpm-nix-builds;
+        description = "A simple pnpm & node setup that uses nix for npm dependencies and builds";
       };
       pnpm-flake-only = {
         path = ./templates/flake-only/pnpm;

@@ -1,4 +1,4 @@
-# pnpm + Nix barebones template
+# pnpm + Nix template
 
 This template gives you a minimal pnpm workspace with support for:
 
