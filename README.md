@@ -42,6 +42,8 @@ nix develop
 
 - pnpm
 
+- bun
+
 ### With Scaffolding
 
 - pnpm-nix-builds
@@ -57,3 +59,21 @@ nix develop
     ```shell
     nix flake new --template "github:colinmelendez/flake-templates#<template-name>" "<target-directory>"
     ```
+
+## Contributing
+
+Flake template repositories are specified by the `templates` output of the `flake.nix` in the project's root.
+
+To add a new template:
+
+- Create a directory to act as the template. This project currently organizes these under `templates/` and refines the categories under `flake-only/` and `with-scaffolding/` for simple and complex templates respectively.
+
+- Add an entry to the `templates` attribute in the project root `flake.nix` that has `path` and `description` attributes, where:
+
+    - The attribute key is the name of your template (this is the template name used in `nix flake init --template "github:colinmelendez/flake-templates#<template-name>"`).
+
+    - `path` is the path to your new template directory.
+
+    - `description` is a short description of your flake (this will be shown when someone runs `nix flake show "github:colinmelendez/flake-templates"`).
+
+- Set up the contents of your template directory. Templates don't need to contain anything specific to be valid (though generally you will want at least a `flake.nix` in the root). Templates will be reproduced verbatim when fetched by a user.
