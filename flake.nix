@@ -4,13 +4,17 @@
   outputs = {...}: {
     templates = {
       # Flake-only templates
+      bun-flake-only = {
+        path = ./templates/flake-only/bun;
+        description = "A basic bun flake for development";
+      };
       pnpm-flake-only = {
         path = ./templates/flake-only/pnpm;
         description = "A basic pnpm & node flake for development";
       };
-      bun-flake-only = {
-        path = ./templates/flake-only/bun;
-        description = "A basic bun flake for development";
+      python-pip-flake-only = {
+        path = ./templates/flake-only/python-pip;
+        description = "A basic python development environment with pip and venv";
       };
       Rust-stable-flake-only = {
         path = ./templates/flake-only/rust-stable;

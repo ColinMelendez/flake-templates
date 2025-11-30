@@ -44,6 +44,8 @@ nix develop
 
 - bun
 
+- python (pip)
+
 ### With Scaffolding
 
 - pnpm-nix-builds
