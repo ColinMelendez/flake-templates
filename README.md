@@ -40,9 +40,9 @@ nix develop
 
 ### Flake Only
 
-- pnpm
-
 - bun
+
+- pnpm
 
 - python (pip)
 
