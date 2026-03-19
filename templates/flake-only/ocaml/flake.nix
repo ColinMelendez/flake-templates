@@ -1,0 +1,45 @@
+{
+  description = "A basic OCaml flake for development";
+
+  # inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1"; # flakehub based unstable Nixpkgs
+  inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1"; # unstable Nixpkgs
+
+  outputs = {self, ...} @ inputs: let
+    supportedSystems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "aarch64-darwin"
+    ];
+    forEachSupportedSystem = f:
+      inputs.nixpkgs.lib.genAttrs supportedSystems (
+        system:
+          f {
+            inherit system;
+            pkgs = import inputs.nixpkgs {inherit system;};
+          }
+      );
+  in {
+    devShells = forEachSupportedSystem (
+      {
+        pkgs,
+        system,
+      }: {
+        default = pkgs.mkShellNoCC {
+          packages = with pkgs;
+            [
+              ocaml
+              ocamlformat
+              self.formatter.${system}
+            ]
+            ++ (with pkgs.ocamlPackages; [
+              dune_3
+              odoc
+              ocaml-lsp
+            ]);
+        };
+      }
+    );
+
+    formatter = forEachSupportedSystem ({pkgs, ...}: pkgs.nixfmt);
+  };
+}
