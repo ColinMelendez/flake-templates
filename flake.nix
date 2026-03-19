@@ -18,7 +18,11 @@
       };
       Rust-stable-flake-only = {
         path = ./templates/flake-only/rust-stable;
-        description = "A flake for Rust development with based on the stable toolchain";
+        description = "A flake for Rust development based on the stable toolchain";
+      };
+      ocaml-flake-only = {
+        path = ./templates/flake-only/ocaml;
+        description = "A basic ocaml flake for development";
       };
       # Templates that include project scaffolding
       pnpm-nix-builds-with-scaffolding = {
