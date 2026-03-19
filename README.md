@@ -42,6 +42,8 @@ nix develop
 
 - bun
 
+- ocaml
+
 - pnpm
 
 - python (pip)
