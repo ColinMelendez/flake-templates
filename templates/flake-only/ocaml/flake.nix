@@ -2,7 +2,7 @@
   description = "A basic OCaml flake for development";
 
   # inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1"; # flakehub based unstable Nixpkgs
-  inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1"; # unstable Nixpkgs
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # unstable Nixpkgs
 
   outputs = {self, ...} @ inputs: let
     supportedSystems = [
